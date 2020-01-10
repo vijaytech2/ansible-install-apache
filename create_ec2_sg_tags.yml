@@ -1,0 +1,20 @@
+---
+ - name: This play is used to launch ec2 instance using sg and tags
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+   - name: creating ec2 instance
+     ec2:
+      instance_type: t2.micro
+      image: ami-0b69ea66ff7391e80
+      key_name: verginia
+      count: 1
+      #group: SSH-RDP
+      group: ['http-https','SSH-RDP']
+      region: us-east-1
+      wait: yes
+      instance_tags:
+        name: test
+        env: dev
+

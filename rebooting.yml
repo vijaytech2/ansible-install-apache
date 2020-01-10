@@ -1,0 +1,11 @@
+- hosts: remote
+  sudo: true
+  tasks:
+    - name: Rebooting ...
+      command: shutdown -r now "Reboot required for updated kernel"
+      async: 0
+      poll: 0
+      sudo: true
+      ignore_errors: true
+      when: reboot_hint.stdout.find("reboot") != -1
+      register: rebooting

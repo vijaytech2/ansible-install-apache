@@ -1,0 +1,13 @@
+---
+ - name: launch aws ec2 instance
+   hosts: localhost
+   gather_facts: false
+   tasks:
+     - name: launch ec2 instance with ec2 madule
+       ec2:
+         aws_access_key: AKIAJWBQ5RPFFXXKFMXA
+         aws_secret_key: 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
+         instance_type: t2.micro
+         image: ami-0b69ea66ff7391e80
+         key_name: verginia
+         region: us-east-1

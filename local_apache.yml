@@ -1,0 +1,11 @@
+---
+- hosts: remote
+  sudo: yes
+  tasks:
+    - name: install apache2
+      apt: name=apche2 state=latest
+    - name: Copy the source file to apache server
+      copy: src=/etc/ansible/index.html dest=/var/www/html
+    - name: start and enable httpd service
+      service: name=apache2 state=restarted enabled=yes
+
