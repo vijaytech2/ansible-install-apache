@@ -1,0 +1,4 @@
+ - name: foo-roles
+   src: ssh://git@stash.company.com:7999/ansible-roles/foo.git
+   version: master
+   path: roles

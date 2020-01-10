@@ -1,0 +1,5 @@
+- hosts: remote
+  sudo: true
+  tasks:
+    - name: upgrade all packages
+      yum: name=* state=latest
